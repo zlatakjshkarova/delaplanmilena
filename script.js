@@ -2,6 +2,13 @@ const myBtn = document.querySelector('#myBtn');
 const nameInput = document.querySelector("#name")
 const list = document.querySelector('#list');
 
+nameInput.addEventListener('click', (event) => {
+    if (event.key === "Event") {
+        addTask()
+    }
+})
+
+
 myBtn.addEventListener('click', Task)
 
 function Task() {
@@ -14,11 +21,12 @@ function Task() {
         newItem.classList.add('item');
 
         const deleteButton = document.createElement('button')
-        newItem.textContent = `<span>${'👏'}</span>`;
+        newItem.innerHTML = `<span>${nameInput.value}</span>`;
 
 
         list.appendChild(newItem);
-
+        cenle.textContent = 'отмена'
+        deleteButton.textContent = 'удалить'
         deleteButton.textContent = 'удалить';
         newItem.appendChild(deleteButton)
 
@@ -32,13 +40,22 @@ function Task() {
                 model.style.display = 'none';
 
             }
+
+            list.addEventListener('click', removeTask)
+
+
             deleteButton.addEventListener('click', removeTask)
-            block.classListadd("model")
+            block.classList.add("model")
+
+
+
+            delBtnModal.addEventListener('click', removeTask)
 
             cenle.addEventListener('click', () => {
-                model.stley.display = 'none';
+                model.style.display = 'none';
 
-                list.classListadd(newItem);
+                delBtnModal.addEventListener('click', removeTask);
+
             })
 
 
