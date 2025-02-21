@@ -1,10 +1,16 @@
+html,
+body {
+    height: 100%;
+
+}
+
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
-
 
 
 
@@ -43,9 +49,7 @@ body {
 
 .model-window {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
+
 }
 
 .model-msg {
@@ -85,12 +89,20 @@ body {
     border-radius: 4px;
 }
 
+input[ type='button'],
+button {
+    padding: 10px, ;
+    font-size: 12px;
+}
+
 .iten {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     border-bottom: 1pxn solid #ccc;
+    margin: 0;
+    list-style: none;
 }
 
 .iten button {
@@ -104,4 +116,10 @@ body {
 
 .iten button:hover {
     background-color: #c82333;
+}
+
+#list {
+    padding: 0;
+    list-style: none;
+
 }

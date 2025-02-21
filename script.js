@@ -1,13 +1,13 @@
 const myBtn = document.querySelector('#myBtn');
 const nameInput = document.querySelector("#name")
 const list = document.querySelector('#list');
+const model = document.querySelector("#model");
+const cenle = document.querySelector("#cenle");
+const delButModel = document.querySelector("#del");
 
-nameInput.addEventListener('click', (event) => {
-    if (event.key === "Event") {
-        addTask()
-    }
-})
 
+
+let currentItem;
 
 myBtn.addEventListener('click', Task)
 
@@ -30,38 +30,58 @@ function Task() {
         deleteButton.textContent = 'удалить';
         newItem.appendChild(deleteButton)
 
+        nameInput.value = '';
+
         deleteButton.addEventListener('click', () => {
+            currentItem = newItem;
+            model.style.display = 'flex';
+        });
+    } else {
+        alert('Заполните поле');
+    }
 
-            model.stley, display = 'block';
+    deleteButton.addEventListener('click', () => {
 
-
-            function removeTask() {
-                list.removeChild(newItem);
-                model.style.display = 'none';
-
-            }
-
-            list.addEventListener('click', removeTask)
-
-
-            deleteButton.addEventListener('click', removeTask)
-            block.classList.add("model")
+        model.stley, display = 'block';
 
 
+        function removeTask() {
+            list.removeChild(newItem);
+            model.style.display = 'none';
 
-            delBtnModal.addEventListener('click', removeTask)
+        }
 
-            cenle.addEventListener('click', () => {
-                model.style.display = 'none';
+        list.addEventListener('click', removeTask)
 
-                delBtnModal.addEventListener('click', removeTask);
 
-            })
+        deleteButton.addEventListener('click', removeTask)
+        block.classList.add("model")
+
+
+
+
+
+        cenle.addEventListener('click', () => {
+            model.style.display = 'none';
+            currentItem = null;
 
 
         })
-        nameInput.value = '';
-    } else {
-        alert('Заполните поле')
-    }
+
+
+    })
+    nameInput.value = '';
 }
+
+delButModel.addEventListener('click', () => {
+    if (currentItem) {
+        list.removeChild(currentItem);
+        model.style.display = 'none';
+        currentItem = null;
+    }
+});
+
+cenle.addEventListener('click', () => {
+    model.style.display = 'none';
+    currentItem = null;
+});
